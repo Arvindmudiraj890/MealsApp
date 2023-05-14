@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal App</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Meal App</h1>
+      
+      <!-- Add Meal Form -->
+      <form id="add-meal-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter meal name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" placeholder="Enter meal description" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <button type="submit">Add Meal</button>
+        </div>
+      </form>
+      
+      <!-- Search Meal Form -->
+      <form id="search-meal-form" class="search-form">
+        <input type="text" id="search" name="search" placeholder="Search meals...">
+        <button type="submit">Search</button>
+      </form>
+      
+      <!-- Meal List -->
+      <div id="meal-list"></div>
+    </div>
+    
+    <script src="app.js"></script>
+  </body>
+</html>
