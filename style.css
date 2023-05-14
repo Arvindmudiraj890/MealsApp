@@ -1,113 +1,80 @@
 body {
-  background-color: #f8f9fa;
-  color: #212529;
+  margin: 0;
   font-family: Arial, sans-serif;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+header {
+  background-color: #e74c3c;
+  color: white;
+  padding: 1em;
 }
 
 h1 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #3b7ddd;
+  margin: 0;
+  font-size: 2em;
 }
 
-.form-group {
-  margin-bottom: 20px;
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
 }
 
-.form-label {
+label {
   display: block;
-  margin-bottom: 5px;
-  font-size: 1.2rem;
-  color: #3b7ddd;
+  margin-bottom: 0.5em;
 }
 
-.form-control {
+input[type="text"],
+textarea {
+  display: block;
   width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #e9ecef;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
 }
 
-.form-control:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 125, 221, 0.25);
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 5px;
+button {
+  padding: 0.5em;
   border: none;
-  background-color: #3b7ddd;
-  color: #fff;
-  font-size: 1.2rem;
+  border-radius: 4px;
+  font-size: 1em;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
 }
 
-.btn:hover {
-  background-color: #1d4ed8;
+.btn-primary {
+  background-color: #3498db;
+  color: white;
 }
 
-.card {
-  margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+.btn-danger {
+  background-color: #e74c3c;
+  color: white;
 }
 
-.card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #3b7ddd;
+.meal {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
-.card p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+.meal-title {
+  margin: 0;
+  font-size: 1.2em;
 }
 
-.card button {
-  display: block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: #f44336;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+.meal-ingredients,
+.meal-instructions {
+  margin: 0;
+  font-size: 1em;
 }
 
-.card button:hover {
-  background-color: #d32f2f;
+.meal-ingredients strong,
+.meal-instructions strong {
+  font-weight: bold;
 }
 
-.alert {
-  margin-bottom: 20px;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-}
-
-.alert.success {
-  background-color: #28a745;
-  color: #fff;
-}
-
-.alert.error {
-  background-color: #dc3545;
-  color: #fff;
-}
