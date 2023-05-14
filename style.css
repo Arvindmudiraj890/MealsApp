@@ -1,0 +1,126 @@
+/* Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 50px;
+  color: #3d3d3d;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+  color: #3d3d3d;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-group button {
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3d3d3d;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-group button:hover {
+  background-color: #4a4a4a;
+}
+
+.search-form {
+  margin-bottom: 50px;
+}
+
+.search-form input {
+  width: 80%;
+}
+
+.search-form button {
+  width: 18%;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #3d3d3d;
+}
+
+.card p {
+  font-size: 18px;
+  color: #3d3d3d;
+  margin-bottom: 10px;
+}
+
+.card button {
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3d3d3d;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.card button:hover {
+  background-color: #4a4a4a;
+}
+
+.alert {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.alert.success {
+  background-color: #8bc34a;
+  color: #fff;
+}
+
+.alert.error {
+  background-color: #f44336;
+  color: #fff;
+}
