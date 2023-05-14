@@ -3,40 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meal App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="container">
-      <h1 class="heading">Meal App</h1>
-      
-      <!-- Add Meal Form -->
-      <form id="add-meal-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter meal name" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea id="description" name="description" placeholder="Enter meal description" required></textarea>
-        </div>
-        
-        <div class="form-group">
-          <button type="submit">Add Meal</button>
-        </div>
+    <header>
+      <h1>Meal App</h1>
+    </header>
+    <main>
+      <form id="meal-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="ingredients">Ingredients:</label>
+        <textarea id="ingredients" required></textarea>
+        <label for="instructions">Instructions:</label>
+        <textarea id="instructions" required></textarea>
+        <button id="add-btn" class="btn btn-primary">Add Meal</button>
       </form>
-      
-      <!-- Search Meal Form -->
-      <form id="search-meal-form" class="search-form">
-        <input type="text" id="search" name="search" placeholder="Search meals...">
-        <button type="submit">Search</button>
-      </form>
-      
-      <!-- Meal List -->
-      <div id="meal-list"></div>
-    </div>
-    
-    <script src="app.js"></script>
+      <div id="meals-container"></div>
+    </main>
+    <script src="script.js"></script>
   </body>
 </html>
