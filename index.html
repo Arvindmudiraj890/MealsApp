@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meal App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+      integrity="sha512-s87G9q/XO9bS5jMh6xqH0Tb+q4OoCh8jR1mcbXx69zCzY1O0TQqK5cvzYi1/axH3fWKSRut6mMQR5v4+AO+oHw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>Meal App</h1>
-    </header>
-    <main>
-      <form id="meal-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
-        <label for="ingredients">Ingredients:</label>
-        <textarea id="ingredients" required></textarea>
-        <label for="instructions">Instructions:</label>
-        <textarea id="instructions" required></textarea>
-        <button id="add-btn" class="btn btn-primary">Add Meal</button>
+    <div class="container mt-5">
+      <h1 class="mb-3">Meal App</h1>
+      <form class="mb-3">
+        <div class="form-group">
+          <label for="meal-name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="meal-name"
+            placeholder="Enter meal name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="meal-description">Description</label>
+          <textarea
+            class="form-control"
+            id="meal-description"
+            rows="3"
+            placeholder="Enter meal description"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Meal</button>
       </form>
-      <div id="meals-container"></div>
-    </main>
+      <input
+        type="text"
+        class="form-control mb-3"
+        id="search-input"
+        placeholder="Search meals by name"
+      />
+      <ul class="list-group" id="meal-list"></ul>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
