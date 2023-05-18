@@ -1,24 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meal App</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Meal App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #mealForm {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    #mealInput {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #addMealBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #mealList {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #mealList li {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 4px;
+    }
+
+    #searchInput {
+      margin-bottom: 20px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Meal App</h1>
-        <div class="input-group mb-3">
-            <input type="text" id="searchInput" placeholder="Search meals" class="form-control">
-            <div class="input-group-append">
-                <button type="button" id="searchButton" class="btn btn-primary">Search</button>
-            </div>
-        </div>
-    </header>
-    <main>
-        <div id="mealsList" class="row"></div>
-    </main>
-    <script src="script.js"></script>
+  <h1>Meal App</h1>
+
+  <div id="mealForm">
+    <input type="text" id="mealInput" placeholder="Enter a meal">
+    <button id="addMealBtn">Add Meal</button>
+  </div>
+
+  <input type="text" id="searchInput" placeholder="Search meals">
+
+  <ul id="mealList">
+    <!-- Meal items will be added dynamically here -->
+  </ul>
+
+  <script src="app.js"></script>
 </body>
 </html>
 
