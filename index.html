@@ -3,54 +3,95 @@
 <head>
   <title>Meal App</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
+  body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    #mealForm {
-      display: flex;
-      margin-bottom: 20px;
-    }
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
 
-    #mealInput {
-      flex: 1;
-      padding: 10px;
-      font-size: 16px;
-    }
+form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
 
-    #addMealBtn {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
 
-    #mealList {
-      list-style-type: none;
-      padding: 0;
-    }
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    #mealList li {
-      margin-bottom: 10px;
-      padding: 10px;
-      background-color: #f2f2f2;
-      border-radius: 4px;
-    }
+button:hover {
+  background-color: #45a049;
+}
 
-    #searchInput {
-      margin-bottom: 20px;
-      padding: 10px;
-      font-size: 16px;
-    }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+li .meal-name {
+  font-weight: bold;
+  color: #333;
+}
+
+li .delete-btn {
+  padding: 6px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+li .delete-btn:hover {
+  background-color: #c0392b;
+}
+
+input[type="text"]:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
   </style>
 </head>
 <body>
