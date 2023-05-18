@@ -1,172 +1,61 @@
-// Define an array to store meals
-let meals = [];
+// Sample meal data
+const meals = [
+    { name: "Spaghetti Bolognese", type: "Italian", ingredients: ["spaghetti", "tomato sauce", "ground beef", "onion", "garlic"] },
+    { name: "Chicken Tikka Masala", type: "Indian", ingredients: ["chicken", "yogurt", "tomato sauce", "spices"] },
+    { name: "Caesar Salad", type: "American", ingredients: ["lettuce", "croutons", "parmesan cheese", "Caesar dressing"] },
+    { name: "Sushi", type: "Japanese", ingredients: ["rice", "nori", "fish", "vegetables"] },
+    { name: "Taco", type: "Mexican", ingredients: ["tortilla", "ground beef", "lettuce", "tomato", "cheese"] }
+];
 
-// Get form elements
-const form = document.querySelector("form");
-const nameInput = document.querySelector("#meal-name");
-const descriptionInput = document.querySelector("#meal-description");
+// Function to display meals
+function displayMeals() {
+    const mealsList = document.getElementById("mealsList");
+    mealsList.innerHTML = "";
 
-// Get search input and meal list
-const searchInput = document.querySelector("#search-input");
-const mealList = document.querySelector("#meal-list");
+    for (let i = 0; i < meals.length; i++) {
+        const meal = meals[i];
 
-// Add event listener to form
-form.addEventListener("submit", (event) => {
-  // Prevent default form submission
-  event.preventDefault();
+        const mealCard = document.createElement("div");
+        mealCard.className = "mealCard";
 
-  // Get values from form
-  const name = nameInput.value.trim();
-  const description = descriptionInput.value.trim();
+        const mealName = document.createElement("h2");
+        mealName.textContent = meal.name;
 
-  // If name and description are not empty, add meal to the list and reset the form
-  if (name !== "" && description !== "") {
-    const meal = {
-      id: Date.now().toString(),
-      name,
-      description,
-    };
+        const mealType = document.createElement("p");
+        mealType.textContent = meal.type;
 
-    meals.push(meal);
-    saveMealsToLocalStorage();
-    renderMeals();
-    form.reset();
-  }
-});
+        const mealIngredients = document.createElement("p");
+        mealIngredients.textContent = "Ingredients: " + meal.ingredients.join(", ");
 
-// Add event listener to search input
-searchInput.addEventListener("input", () => {
-  renderMeals();
-});
+        mealCard.appendChild(mealName);
+        mealCard.appendChild(mealType);
+        mealCard.appendChild(mealIngredients);
 
-// Add event listener to meal list
-mealList.addEventListener("click", (event) => {
-  const target = event.target;
+        mealsList.appendChild(mealCard);
+    }
+}
 
-  // If a meal item is clicked, show its details
-  if (target.matches(".list-group-item")) {
-    const mealId = target.dataset.id;
-    const meal = meals.find((meal) => meal.id === mealId);
-    showMealDetails(meal);
-  }
+// Function to filter meals based on search input
+function filterMeals() {
+    const searchInput = document.getElementById("searchInput");
+    const searchTerm = searchInput.value.toLowerCase();
 
-  // If the delete button is clicked, delete the meal
-  if (target.matches(".delete-button")) {
-    const mealId = target.dataset.id;
-    deleteMealById(mealId);
-    renderMeals();
-  }
+    const filteredMeals = meals.filter(meal => meal.name.toLowerCase().includes(searchTerm) || meal.type.toLowerCase().includes(searchTerm));
 
-  // If the edit button is clicked, show the edit form
-  if (target.matches(".edit-button")) {
-    const mealId = target.dataset.id;
-    showEditForm(mealId);
-  }
-});
-
-// Render the list of meals
-function renderMeals() {
-  // Clear the current list of meals
-  mealList.innerHTML = "";
-
-  // Get the search query and filter the meals array
-  const query = searchInput.value.trim().toLowerCase();
-  const filteredMeals = meals.filter((meal) =>
-    meal.name.toLowerCase().includes(query)
-  );
-
-  // Render the filtered meals
-  filteredMeals.forEach((meal) => {
-    const listItem = document.createElement("li");
-    listItem.classList.add("list-group-item");
-    listItem.innerText = meal.name;
-    listItem.dataset.id = meal.id;
-
-    if (mealList.firstChild) {
-      mealList.insertBefore(listItem, mealList.firstChild);
+    if (filteredMeals.length > 0) {
+        meals = filteredMeals;
     } else {
-      mealList.appendChild(listItem);
+        meals = [];
     }
-  });
+
+    displayMeals();
 }
 
-// Show the details of a meal
-function showMealDetails(meal) {
-  const mealDetails = document.createElement("div");
-  mealDetails.classList.add("meal-details");
-  mealDetails.innerHTML = `
-    <h2>${meal.name}</h2>
-    <p>${meal.description}</p>
-    <button class="btn btn-danger delete-button" data-id="${meal.id}">Delete</button>
-    <button class="btn btn-primary edit-button" data-id="${meal.id}">Edit</button>
-  `;
+// Event listener for search input
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", filterMeals);
 
-  // Remove any existing meal details
-  const existingMealDetails = document.querySelector(".meal-details");
-  if (existingMealDetails) {
-    existingMealDetails.remove();
-  }
+// Display initial list of meals
+displayMeals();
 
-  // Add the meal details to the page
-  mealList.insertAdjacentElement("afterend", mealDetails);
-}
-
-// Delete a meal by ID
-function deleteMealById(mealId) {
-  meals = meals.filter((meal) => meal.id !== mealId);
-  saveMealsToLocalStorage();
-}
-
-// Show the edit form for a meal
-function showEditForm(mealId) {
-  const meal = meals.find((meal) => meal.id === mealId);
-
-  // Create form elements
-  const form = document.createElement("form");
-  const nameInput = document.createElement("input");
-  const descriptionInput = document.createElement("textarea");
-  const saveButton = document.createElement("button");
-  const cancelButton = document.createElement("button");
-
-  // Set form element attributes
-  nameInput.setAttribute("type", "text");
-  nameInput.setAttribute("id", "edit-meal-name");
-  nameInput.setAttribute("placeholder", "Enter meal name");
-  nameInput.setAttribute("value", meal.name);
-  descriptionInput.setAttribute("id", "edit-meal-description");
-  descriptionInput.setAttribute("placeholder", "Enter meal description");
-  descriptionInput.textContent = meal.description;
-  saveButton.setAttribute("type", "submit");
-  saveButton.classList.add("btn", "btn-primary");
-  saveButton.innerText = "Save";
-  cancelButton.setAttribute("type", "button");
-  cancelButton.classList.add("btn", "btn-secondary");
-  cancelButton.innerText = "Cancel";
-
-  // Add event listeners to form elements
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const name = nameInput.value.trim();
-    const description = descriptionInput.value.trim();
-
-    if (name !== "" && description !== "") {
-      meal.name = name;
-      meal.description = description;
-      saveMealsToLocalStorage();
-      renderMeals();
-      form.remove();
-    }
-  });
-
-  cancelButton.addEventListener("click", () => {
-    form.remove();
-  });
-
-  // Add form elements to the form and add the form to the page
-  form.appendChild(nameInput);
-  form.appendChild(descriptionInput);
-  form.appendChild(saveButton);
-  form.appendChild(cancelButton);
-  mealList.insertAdjacentElement("afterend", form);
-}
 
